@@ -1,26 +1,68 @@
-# Fun Rapper Name API
+# Simple User API
 
-Let's find out what these rapper's real names are!
-
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
-
-![alt tag](http://placecorgi.com/1200/650)
+This is a basic CRUD app using Express.
 
 ## How It's Made:
+
+Set up the server with Express
+
+```
+const express = require('express');
+const app = express();
+app.listen(3000, () => console.log('YAY server is up and runniong on 3000'));
+```
+
+Come up with some random users data
+
+```
+let users = {
+    <!--  -->
+}
+```
+
+Serving up static HTML page on home route
+
+```
+app.get('/', (req, res)=> {
+    res.sendFile(_dirname +'/index.html')
+})
+```
+
+Respond with a singler user data when users search for a name, and display the data on static page
+
+```
+app.get('/api/:name', (req, res) => {
+    res.json(object)
+}
+```
+
+    Listen to click event on main.js
+
+Last, upload codes to Github and Heroku
+
+```
+heroku login -i
+heroku create random-user-api
+echo "web: node server.js" > Procfile
+git add .
+git commit -m "changes"
+git push heroku main
+```
 
 ## How to Install and Run the Project
 
 clone the repository
 install depedencies:
+
 `npm install`
 
-**Tech used:** HTML, CSS, JavaScript, Express
-
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write _something_. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+**Tech used:** JavaScript, Express, nodemon, Github, Heroku
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those _whoa this is awesome_ or _fuck yeah I did it!_ moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+Writing my owe API and make it work on Heroku is awesome!!
+
+This project only provides the API data, I didn't build a front-end to render the data.
 
 ## Examples:
 
