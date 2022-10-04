@@ -1,58 +1,103 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 
-let rappers = {
-  "21 savage": {
-    age: 28,
-    birthName: "Shéyaa Bin Abraham-Joseph",
-    birthdate: "22 October 1992",
-    birthLocation: "London, England",
-    origin: "Atlanta, Georgia",
-    genre: "hip hop, trap, rap, horrorcore",
-    occupation: "rapper, songwriter, record producer",
-    yearsActive: "2013-present",
-    labels: "Epic, Slaughter Gang",
-    children: 3,
+let users = {
+  bret: {
+    id: 1,
+    name: 'Leanne Graham',
+    email: 'Sincere@april.biz',
+    address: {
+      street: 'Kulas Light',
+      suite: 'Apt. 556',
+      city: 'Gwenborough',
+      zipcode: '92998-3874',
+      geo: {
+        lat: '-37.3159',
+        lng: '81.1496',
+      },
+    },
+    phone: '1-770-736-8031 x56442',
+    website: 'hildegard.org',
+    company: {
+      name: 'Romaguera-Crona',
+      catchPhrase: 'Multi-layered client-server neural-net',
+      bs: 'harness real-time e-markets',
+    },
   },
-  "chance the rapper": {
-    age: 28,
-    birthName: "Chancelor Jonathan Bennett",
-    birthdate: "April 16, 1993",
-    birthLocation: "London, England",
-    origin: "Chicago, Illinois",
-    genre: "hip hop, alternative hip hop, r & b",
-    occupation:
-      "rapper, singer, song writer, record producer, activist, actor, philanthropist",
-    yearsActive: "2011-present",
-    labels: "none",
-    children: 0,
+  andy: {
+    id: 2,
+    name: 'Ervin Howell',
+    email: 'Shanna@melissa.tv',
+    address: {
+      street: 'Victor Plains',
+      suite: 'Suite 879',
+      city: 'Wisokyburgh',
+      zipcode: '90566-7771',
+      geo: {
+        lat: '-43.9509',
+        lng: '-34.4618',
+      },
+    },
+    phone: '010-692-6593 x09125',
+    website: 'anastasia.net',
+    company: {
+      name: 'Deckow-Crist',
+      catchPhrase: 'Proactive didactic contingency',
+      bs: 'synergize scalable supply-chains',
+    },
+  },
+  sam: {
+    id: 3,
+    name: 'Clementine Bauch',
+    email: 'Nathan@yesenia.net',
+    address: {
+      street: 'Douglas Extension',
+      suite: 'Suite 847',
+      city: 'McKenziehaven',
+      zipcode: '59590-4157',
+      geo: {
+        lat: '-68.6102',
+        lng: '-47.0653',
+      },
+    },
+    phone: '1-463-123-4447',
+    website: 'ramiro.info',
+    company: {
+      name: 'Romaguera-Jacobson',
+      catchPhrase: 'Face to face bifurcated interface',
+      bs: 'e-enable strategic applications',
+    },
   },
   unknown: {
-    age: "unknown",
-    birthName: "unknown",
-    birthdate: "unknown",
-    birthLocation: "unknown",
-    origin: "unknown",
-    genre: "unknown",
-    occupation: "unknown",
-    yearsActive: "unknown",
-    labels: "unknown",
-    children: "unknown",
+    age: 'unknown',
+    birthName: 'unknown',
+    birthdate: 'unknown',
+    birthLocation: 'unknown',
+    origin: 'unknown',
+    genre: 'unknown',
+    occupation: 'unknown',
+    yearsActive: 'unknown',
+    labels: 'unknown',
+    children: 'unknown',
   },
 };
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
 
-app.get("/api/:rapperName", (req, res) => {
-  const name = req.params.rapperName.toLowerCase();
+app.get('/api/:name', (req, res) => {
+  // console.log(req.params.name);
+  const name = req.params.name.toLowerCase();
 
-  //if rappername doesn't exist
-  if (rappers[name]) {
-    res.json(rappers[name]);
+  // if username doesn't exist
+  if (users[name]) {
+    res.json(users[name]);
   } else {
-    res.json(rappers["unknown"]);
+    res.json(users['unknown']);
   }
 });
-app.listen(3000, () => console.log("YAY server is up and runniong on 3000"));
+
+//app.post('/addRapper', (req, res) => {});
+
+app.listen(3000, () => console.log('YAY server is up and runniong on 3000'));
